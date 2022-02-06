@@ -7,7 +7,15 @@ clearButton.textContent = 'Clear'
 document.body.appendChild(clearButton)
 
 clearButton.addEventListener('click', function(){
-   painting.style.backgroundColor ='white'
+ const allPixel = document.querySelectorAll('.pixel')
+
+ for (i=0; i < allPixel.length ; i++){
+     if (allPixel [i].style.backgroundColor !== 'white'){
+        allPixel[i].style.backgroundColor ='white'
+     } 
+ }
+    painting.style.backgroundColor = 'black'
+ document.body.style.backgroundColor ='white'
 })
 
 painting.addEventListener('click', function(e){
@@ -16,7 +24,7 @@ painting.addEventListener('click', function(e){
 //Double click pixel
 painting.addEventListener('dblclick', function(e){
     selectedColor = 'white'
-    //e.target.style.backgroundColor = 'white' 
+    e.target.style.backgroundColor = 'white' 
 })
 // Create Blue color pallet object
 let colorBlue = document.getElementById('blue')
